@@ -2,6 +2,7 @@
 
 import "package:flutter/material.dart";
 import "package:quiz_app/start_screen.dart";
+import "package:quiz_app/questions_screen.dart";
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -13,10 +14,21 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  var activeScreen = const StartScreen();
+  Widget ? activeScreen;
 
-  void switchScreen() {
+  @override
+  void initState() {
+    super.initState();
+    activeScreen = StartScreen(switchScreen);
     
+  }
+
+  // needs to be connected to the button on StartScreen
+  // startscreen needs access to this function
+  void switchScreen() {
+    setState(() {
+      activeScreen = const QuestionsScreen();
+    });
   }
 
   @override
@@ -34,7 +46,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: const StartScreen(),
+          child: activeScreen,
         ),
       ),
     );
