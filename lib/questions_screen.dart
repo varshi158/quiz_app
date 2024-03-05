@@ -37,7 +37,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ),
             // "answers" is an list
             // "map" allows you to convert values in a list into other values
-            ...currentQuestion.answers.map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(answerText: answer, onTap: () {});
             }),
         
