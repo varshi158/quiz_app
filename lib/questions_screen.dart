@@ -12,10 +12,18 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // accessing "questions" list
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -38,9 +46,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             // "answers" is an list
             // "map" allows you to convert values in a list into other values
             ...currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(answerText: answer, onTap: () {});
+              return AnswerButton(
+                answerText: answer,
+                onTap: answerQuestion,
+              );
             }),
-        
+
             // AnswerButton(
             //   answerText: currentQuestion.answers[0],
             //   onTap: () {},
