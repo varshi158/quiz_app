@@ -25,7 +25,7 @@ class StartScreen extends StatelessWidget {
           Text(
             "Learn Flutter the fun way!",
             style: GoogleFonts.lato(
-              color: const Color.fromARGB(146, 41, 130, 202),
+              color: const Color.fromARGB(202, 124, 195, 253),
               fontSize: 24,  
             ),
           ),
@@ -35,7 +35,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: startQuiz,
             style: OutlinedButton.styleFrom(
-              foregroundColor: const Color.fromARGB(129, 41, 130, 202),
+              foregroundColor: const Color.fromARGB(202, 124, 195, 253),
               textStyle: const TextStyle(fontSize: 18),
             ),
             icon: const Icon(Icons.arrow_right_alt_outlined),
